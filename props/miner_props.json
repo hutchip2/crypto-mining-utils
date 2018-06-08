@@ -1,0 +1,6 @@
+{
+    "wallet": "YOUR_WALLET_ADDRESS", 
+    "lastPayoutAmount": 0, 
+    "name": "YOUR_MINER_ID", 
+    "lastPayoutTimestamp": ""
+}
