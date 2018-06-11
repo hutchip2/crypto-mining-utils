@@ -1,0 +1,85 @@
+{
+	"coin": {
+		"eth": {
+			"wallet": "",
+			"pool": {
+				"ethermine": {
+					"url": "stratum+tcp://us1.ethermine.org",
+					"port": "4444",
+					"lastPayoutAmount": "",
+					"lastPayoutTimestamp": "",
+					"password": "x"
+				}
+			},
+			"process": "mine_ethereum.sh"
+		},
+
+		"etn": {
+			"wallet": "",
+			"pool": {
+				"nanopool": {
+					"url": "stratum+tcp://etn-us-east1.nanopool.org",
+					"port": "13333",
+					"lastPayoutAmount": "",
+					"lastPayoutTimestamp": "",
+					"password": "x"
+				},
+				"spacepools": {
+					"url": "stratum+tcp://pool.etn.spacepools.org",
+					"port": "5555",
+					"lastPayoutAmount": "",
+					"lastPayoutTimestamp": "",
+					"password": "x"
+				}
+			},
+			"process": "mine_electroneum.sh"
+		},
+
+		"grft": {
+			"wallet": "",
+			"pool": {
+				"spacepools": {
+					"url": "stratum+tcp://pool.graft.spacepools.org",
+					"port": "5555",
+					"lastPayoutAmount": "",
+					"lastPayoutTimestamp": "",
+					"password": "x"
+				}
+			},
+			"process": "mine_graft.sh"
+		},
+
+		"xmr": {
+			"wallet": "",
+			"pool": {
+				"nanopool": {
+					"url": "stratum+tcp://xmr-us-east1.nanopool.org",
+					"port": "14444",
+					"lastPayoutAmount": "",
+					"lastPayoutTimestamp": "",
+					"password": "x"
+				},
+				"supportxmr": {
+					"url": "stratum+tcp://pool.supportxmr.com",
+					"port": "7777",
+					"lastPayoutAmount": "",
+					"lastPayoutTimestamp": "",
+					"password": "x"
+				}
+			},
+			"process": "mine_monero.sh"
+		}
+	},
+	"miner": {
+		"claymore": {
+			"path": "~/cryptocurrency/miner/claymore/ethdcrminer64"
+		},
+
+		"xmr-stak": {
+			"path": "~/cryptocurrency/miner/xmr-stak/bin/xmr-stak"
+		}
+	},
+
+	"email": "",
+	"workerId": ""
+}
