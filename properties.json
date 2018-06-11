@@ -73,14 +73,14 @@
 	"miner": {
 		"claymore": {
 			"path": "~/cryptocurrency/miner/claymore/ethdcrminer64",
-			"params": "-epool $POOL:$PORT -ewal $WALLET -eworker $WORKER -epsw $PASSWORD -mode 1 -tt 80 -allpools 1"
+			"params": "-epool POOL:PORT -ewal WALLET -eworker WORKER -epsw PASSWORD -mode 1 -tt 80 -allpools 1"
 		},
 
 		"xmrstak": {
 			"path": "~/cryptocurrency/miner/xmr-stak/bin/xmr-stak",
 			"httpd": "8080",
 			"currency": "cryptonight_v7",
-			"params": "--noAMD --currency $CURRENCY -o $POOL:$PORT -u $WALLET@$WORKER -p $PASSWORD -i $HTTPD -r $WORKER"
+			"params": "--noAMD --currency CURRENCY -o POOL:PORT -u WALLET@WORKER -p PASSWORD -i HTTPD -r WORKER"
 		}
 	},
 

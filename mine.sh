@@ -14,18 +14,19 @@ else
     export GPU_MAX_ALLOC_PERCENT=100
     export GPU_SINGLE_ALLOC_PERCENT=100
 
-    POOL=$(cat ./properties.json | jq -r '.coin.'$1'.pool.'$2'.url')
-    PORT=$(cat ./properties.json | jq -r '.coin.'$1'.pool.'$2'.port')
-    PASSWORD=$(cat ./properties.json | jq -r '.coin.'$1'.pool.'$2'.password')
-    WALLET=$(cat ./properties.json | jq -r '.coin.'$1'.wallet')
     MINER=$(cat ./properties.json | jq -r '.coin.'$1'.miner')
-    WORKER=$(cat ./properties.json | jq -r '.worker')
-    HTTPD=$(cat ./properties.json | jq -r '.miner.'$MINER'.httpd')
-    CURRENCY=$(cat ./properties.json | jq -r '.miner.'$MINER'.currency')
     PARAMS=$(cat ./properties.json | jq -r '.miner.'$MINER'.params')
+
+    PARAMS=${PARAMS//POOL/$(cat ./properties.json | jq -r '.coin.'$1'.pool.'$2'.url')}
+    PARAMS=${PARAMS//PORT/$(cat ./properties.json | jq -r '.coin.'$1'.pool.'$2'.port')}
+    PARAMS=${PARAMS//PASSWORD/$(cat ./properties.json | jq -r '.coin.'$1'.pool.'$2'.password')}
+    PARAMS=${PARAMS//WALLET/$(cat ./properties.json | jq -r '.coin.'$1'.wallet')}
+    PARAMS=${PARAMS//WORKER/$(cat ./properties.json | jq -r '.worker')}
+    PARAMS=${PARAMS//HTTPD/$(cat ./properties.json | jq -r '.miner.'$MINER'.httpd')}
+    PARAMS=${PARAMS//CURRENCY/$(cat ./properties.json | jq -r '.miner.'$MINER'.currency')}
     PATH=$(cat ./properties.json | jq -r '.miner.'$MINER'.path')
 
-    cd $1 && screen -d -m $PATH $PARAMS
+    /usr/bin/screen -d -m $PATH $PARAMS
 fi
 
 exit 0
