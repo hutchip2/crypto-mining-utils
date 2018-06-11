@@ -2,6 +2,7 @@
 	"coin": {
 		"eth": {
 			"wallet": "",
+			"miner": "claymore",
 			"pool": {
 				"ethermine": {
 					"url": "stratum+tcp://us1.ethermine.org",
@@ -10,12 +11,12 @@
 					"lastPayoutTimestamp": "",
 					"password": "x"
 				}
-			},
-			"process": "mine_ethereum.sh"
+			}
 		},
 
 		"etn": {
 			"wallet": "",
+			"miner": "xmrstak",
 			"pool": {
 				"nanopool": {
 					"url": "stratum+tcp://etn-us-east1.nanopool.org",
@@ -31,12 +32,12 @@
 					"lastPayoutTimestamp": "",
 					"password": "x"
 				}
-			},
-			"process": "mine_electroneum.sh"
+			}
 		},
 
-		"grft": {
+		"grft": { 
 			"wallet": "",
+			"miner": "xmrstak",
 			"pool": {
 				"spacepools": {
 					"url": "stratum+tcp://pool.graft.spacepools.org",
@@ -45,12 +46,12 @@
 					"lastPayoutTimestamp": "",
 					"password": "x"
 				}
-			},
-			"process": "mine_graft.sh"
+			}
 		},
 
 		"xmr": {
 			"wallet": "",
+			"miner": "xmrstak",
 			"pool": {
 				"nanopool": {
 					"url": "stratum+tcp://xmr-us-east1.nanopool.org",
@@ -66,20 +67,24 @@
 					"lastPayoutTimestamp": "",
 					"password": "x"
 				}
-			},
-			"process": "mine_monero.sh"
+			}
 		}
 	},
 	"miner": {
 		"claymore": {
-			"path": "~/cryptocurrency/miner/claymore/ethdcrminer64"
+			"path": "~/cryptocurrency/miner/claymore/ethdcrminer64",
+			"params": "-epool $POOL:$PORT -ewal $WALLET -eworker $WORKER -epsw $PASSWORD -mode 1 -tt 80 -allpools 1"
 		},
 
-		"xmr-stak": {
-			"path": "~/cryptocurrency/miner/xmr-stak/bin/xmr-stak"
+		"xmrstak": {
+			"path": "~/cryptocurrency/miner/xmr-stak/bin/xmr-stak",
+			"httpd": "8080",
+			"currency": "cryptonight_v7",
+			"params": "--noAMD --currency $CURRENCY -o $POOL:$PORT -u $WALLET@$WORKER -p $PASSWORD -i $HTTPD -r $WORKER"
 		}
 	},
 
 	"email": "",
-	"workerId": ""
+	"worker": "",
+	"process": "mine.sh"
 }
